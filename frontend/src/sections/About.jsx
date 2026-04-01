@@ -46,7 +46,7 @@ export default function About() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-display font-bold text-primary mb-10 md:mb-16 bracket-heading tracking-wide">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-display font-bold text-primary mb-10 md:mb-16 gradient-heading tracking-wide">
             About Me
           </motion.h2>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { GraduationCap, Award, MapPin } from 'lucide-react';
 
 const educationList = [
   {
@@ -39,7 +39,7 @@ export default function Education() {
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
@@ -47,18 +47,18 @@ export default function Education() {
     <section id="education" className="py-20 md:py-28 px-4 sm:px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12 md:mb-20 text-left"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-20 bracket-heading tracking-wide">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary gradient-heading tracking-wide inline-block">
             Education
           </h2>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -68,20 +68,27 @@ export default function Education() {
             <motion.div 
               key={idx}
               variants={itemVariants}
-              className="glass-card p-6 md:p-8 rounded-2xl hover:border-indigo-primary/40 hover:shadow-xl hover:shadow-indigo-primary/10 transition-all relative group overflow-hidden"
+              className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-300 transition-all duration-300 flex flex-col h-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100 mb-6 text-indigo-600">
+                {idx === 0 ? <GraduationCap size={24} /> : <Award size={24} />}
+              </div>
               
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4 relative z-10">
-                <h3 className="text-xl md:text-2xl font-display font-extrabold text-indigo-primary leading-tight">{edu.institution}</h3>
-                <span className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-teal-secondary/10 to-teal-secondary/20 text-teal-secondary text-xs sm:text-sm font-bold rounded-full w-max shadow-sm border border-teal-secondary/20">
+              <div className="flex-1">
+                <span className="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-2">
                   {edu.year}
                 </span>
+                <h3 className="text-lg font-black text-slate-900 leading-tight mb-2">
+                  {edu.institution}
+                </h3>
+                <h4 className="text-sm font-semibold text-slate-600 mb-4 pb-4 border-b border-slate-100">
+                  {edu.degree}
+                </h4>
               </div>
-              <p className="text-lg md:text-xl font-bold text-primary mb-3 relative z-10">{edu.degree}</p>
-              <p className="text-sm md:text-base font-medium text-secondary flex items-center gap-1.5 relative z-10">
-                <MapPin size={16} className="text-teal-secondary" /> {edu.location}
-              </p>
+
+              <div className="mt-auto flex items-center gap-1.5 text-xs font-medium text-slate-500 bg-slate-50 px-3 py-1.5 rounded-md w-max border border-slate-100">
+                <MapPin size={14} className="text-slate-400" /> {edu.location}
+              </div>
             </motion.div>
           ))}
         </motion.div>

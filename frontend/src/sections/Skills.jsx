@@ -56,7 +56,7 @@ export default function Skills() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-20 bracket-heading tracking-wide">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-20 gradient-heading tracking-wide">
             Skills & Expertise
           </h2>
         </motion.div>

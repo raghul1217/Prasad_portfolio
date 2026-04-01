@@ -1,25 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Settings, Globe, Ruler } from 'lucide-react';
+import { Trophy, Settings, Globe, Award, ShieldCheck } from 'lucide-react';
 
 const secondaryAchievements = [
   {
-    icon: <Settings size={36} strokeWidth={1.5} />,
-    text: "9 Years at Clark Fixture — Global Aerospace & Defense tooling",
-    color: "text-blue-600",
-    bg: "bg-blue-50 border-blue-200"
+    icon: <Settings size={24} />,
+    title: "Global Tooling Ecosystem",
+    text: "9 Years at Clark Fixture — Lead design & execution for aerospace & defense.",
   },
   {
-    icon: <Globe size={36} strokeWidth={1.5} />,
-    text: "Supplier network established across 5+ Indian manufacturing hubs",
-    color: "text-teal-600",
-    bg: "bg-teal-50 border-teal-200"
+    icon: <Globe size={24} />,
+    title: "Vast Supplier Network",
+    text: "Established and validated manufacturing hubs across 5+ Indian states.",
   },
   {
-    icon: <Ruler size={36} strokeWidth={1.5} />,
-    text: "IMTA Certified Gauge Designer",
-    color: "text-purple-600",
-    bg: "bg-purple-50 border-purple-200"
+    icon: <ShieldCheck size={24} />,
+    title: "Certified Gauge Expert",
+    text: "IMTA Certified Gauge Designer recognizing elite precision metrics.",
   }
 ];
 
@@ -33,20 +30,20 @@ export default function Achievements() {
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
   return (
     <section id="achievements" className="py-20 md:py-28 px-4 sm:px-6 relative z-10">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12 md:mb-20 text-left"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-16 bracket-heading tracking-wide text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-primary gradient-heading tracking-wide inline-block whitespace-nowrap">
             Key Achievements
           </h2>
         </motion.div>
@@ -55,42 +52,51 @@ export default function Achievements() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="space-y-8 lg:space-y-12"
+          viewport={{ once: true, amount: 0.1 }}
+          className="space-y-6"
         >
-          {/* Main Achievement Card */}
-          <motion.div variants={itemVariants} className="glass-card p-8 md:p-12 rounded-3xl border-l-[6px] border-l-gold-highlight text-center relative overflow-hidden group hover:shadow-2xl hover:shadow-gold-highlight/20 transition-all duration-500 hover:-translate-y-2">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold-highlight/5 via-transparent to-gold-highlight/5 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Main Professional Achievement Card */}
+          <motion.div variants={itemVariants} className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-8 md:p-12 shadow-xl shadow-slate-900/10 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 relative overflow-hidden group">
+            {/* Subtle glow instead of bright orange */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             
-            <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-orange-100 to-amber-50 flex items-center justify-center mb-6 shadow-sm border border-gold-highlight/20 group-hover:scale-110 transition-transform duration-500">
-              <Trophy size={40} className="text-gold-highlight" />
+            <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center shadow-inner relative z-10">
+              <Trophy size={40} className="text-amber-500" />
             </div>
             
-            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-4 px-4 leading-tight">
-              ACMA Prestigious Award — First Place, 2014
-            </h3>
-            <p className="text-base md:text-xl font-bold text-secondary mb-6 max-w-2xl mx-auto">
-              Automotive Component Manufacturers Association of India
-            </p>
-            <div className="inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-r from-orange-50 to-amber-50 border border-gold-highlight/20 text-gold-highlight font-black tracking-widest uppercase text-xs md:text-sm rounded-full shadow-sm">
-              Category: Productivity Improvement
+            <div className="flex-1 relative z-10">
+              <div className="inline-flex items-center px-3 py-1 bg-slate-800/80 text-amber-500 border border-amber-500/20 text-xs font-bold uppercase tracking-widest rounded-md mb-4">
+                1st Place Award Winner
+              </div>
+              <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-3 leading-tight">
+                ACMA Prestigious Industry Award
+              </h3>
+              <p className="text-base md:text-lg text-slate-400 font-medium max-w-2xl mb-4">
+                Awarded by the Automotive Component Manufacturers Association of India for outstanding leadership and excellence in manufacturing Productivity Improvement (2014).
+              </p>
             </div>
           </motion.div>
 
-          {/* Secondary Achievement Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {/* Secondary Achievement Row - Clean Corporate Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {secondaryAchievements.map((ach, idx) => (
               <motion.div 
                 key={idx}
                 variants={itemVariants}
-                className="glass-card p-6 md:p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center gap-5 hover:shadow-xl"
+                className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-indigo-300 transition-colors shadow-sm flex flex-col gap-4"
               >
-                <div className={`p-4 rounded-2xl ${ach.bg} ${ach.color} shadow-sm`}>
+                <div className="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100">
                   {ach.icon}
                 </div>
-                <p className="text-primary font-bold text-sm md:text-base leading-relaxed">
-                  {ach.text}
-                </p>
+                
+                <div>
+                  <h4 className="text-lg font-black text-slate-900 mb-2">
+                    {ach.title}
+                  </h4>
+                  <p className="text-slate-600 text-sm font-medium leading-relaxed">
+                    {ach.text}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

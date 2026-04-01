@@ -45,7 +45,7 @@ export default function Hero() {
       >
         <motion.h1 
           variants={itemVariants} 
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-900 to-indigo-primary leading-tight pb-2"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-900 to-indigo-primary leading-tight pb-2 whitespace-nowrap"
         >
           Prasad N
         </motion.h1>

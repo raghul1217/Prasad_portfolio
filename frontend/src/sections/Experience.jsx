@@ -115,7 +115,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-20 bracket-heading tracking-wide"
+            className="text-3xl md:text-5xl font-display font-bold text-primary mb-12 md:mb-20 gradient-heading tracking-wide"
           >
             Work Experience
           </motion.h2>

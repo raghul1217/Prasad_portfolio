@@ -20,6 +20,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px;
   }
   body {
     background-color: var(--color-warm-bg);
@@ -37,15 +38,20 @@
     background-size: 24px 24px;
     opacity: 0.05;
   }
-  .bracket-heading::before {
-    content: "[ ";
-    color: var(--color-teal-secondary);
-    opacity: 0.6;
+  .gradient-heading {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.75rem;
   }
-  .bracket-heading::after {
-    content: " ]";
-    color: var(--color-teal-secondary);
-    opacity: 0.6;
+  .gradient-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 6px;
+    background: linear-gradient(to right, var(--color-indigo-primary), var(--color-teal-secondary));
+    border-radius: 9999px;
   }
   .glass-card {
     background-color: var(--color-warm-surface);
