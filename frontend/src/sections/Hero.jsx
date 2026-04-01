@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
+import cvFile from '../assets/PRASAD N (C.V).pdf';
 
 const subtitles = [
   "Tool Design & R&D Product Development",
@@ -78,7 +79,8 @@ export default function Hero() {
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto px-4">
           <motion.a 
-            href="/prasad-cv.pdf"
+            href={cvFile}
+            download="Prasad_N_CV.pdf"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="w-full sm:w-auto px-8 py-4 rounded-xl text-white bg-gradient-to-r from-indigo-primary to-teal-secondary shadow-xl shadow-indigo-primary/40 hover:shadow-indigo-primary/60 transition-all font-bold flex items-center justify-center gap-2 text-lg"
