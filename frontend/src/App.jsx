@@ -11,8 +11,15 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-warm-bg text-primary font-sans antialiased relative selection:bg-indigo-primary/20">
-      <div className="fixed inset-0 z-0 pointer-events-none bg-dot-pattern"></div>
+    <div className="min-h-screen bg-warm-bg text-primary font-sans antialiased relative selection:bg-indigo-primary/20 overflow-x-hidden">
+      
+      {/* Vibrant Ambient Gradient Background integrated with dot pattern */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-primary/10 blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-teal-secondary/15 blur-[120px]"></div>
+        <div className="absolute top-[30%] left-[60%] w-[30%] h-[30%] rounded-full bg-purple-500/10 blur-[100px]"></div>
+        <div className="absolute inset-0 bg-dot-pattern"></div>
+      </div>
       
       <div className="relative z-10 font-sans">
         <Navbar />

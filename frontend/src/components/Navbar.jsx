@@ -20,7 +20,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section
       const sections = navLinks.map(link => link.href.substring(1));
       let current = '';
       for (const section of sections) {
@@ -43,31 +42,31 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-warm-surface/80 backdrop-blur-sm border-b border-border-warm py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white/70 backdrop-blur-md border-b border-border-warm py-4 shadow-sm' : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center max-w-6xl">
-        <a href="#" className="text-2xl font-display font-bold text-indigo-primary whitespace-nowrap">
-          <span className="text-secondary">[</span> PN <span className="text-secondary">]</span>
+      <div className="container mx-auto px-6 flex justify-between items-center max-w-7xl">
+        <a href="#" className="text-2xl md:text-3xl font-display font-black text-indigo-primary whitespace-nowrap tracking-tighter">
+          <span className="text-teal-secondary font-light">[</span> PN <span className="text-teal-secondary font-light">]</span>
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden lg:flex space-x-10">
           {navLinks.map((link) => (
             <a 
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors relative pb-1 ${
+              className={`text-sm font-bold transition-all relative py-2 ${
                 activeSection === link.href.substring(1) 
                   ? 'text-indigo-primary' 
-                  : 'text-secondary hover:text-indigo-primary'
+                  : 'text-secondary hover:text-indigo-primary hover:-translate-y-0.5'
               }`}
             >
               {link.name}
               {activeSection === link.href.substring(1) && (
                 <motion.div 
                   layoutId="activeSection"
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-primary"
+                  className="absolute bottom-0 left-0 w-full h-1 rounded-full bg-gradient-to-r from-indigo-primary to-teal-secondary shadow-sm"
                 />
               )}
             </a>
@@ -76,10 +75,10 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-primary focus:outline-none"
+          className="lg:hidden text-primary focus:outline-none bg-white p-2 rounded-xl shadow-sm border border-border-warm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={24} className="text-indigo-primary"/> : <Menu size={24} className="text-indigo-primary"/>}
         </button>
       </div>
 
@@ -90,21 +89,22 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-warm-surface border-b border-border-warm overflow-hidden"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-border-warm overflow-hidden shadow-2xl absolute w-full left-0 top-full"
           >
-            <div className="flex flex-col py-4 px-6 space-y-4">
+            <div className="flex flex-col py-6 px-6 space-y-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg font-medium ${
+                  className={`text-xl font-bold flex items-center justify-between py-2 border-b border-border-warm/50 ${
                     activeSection === link.href.substring(1) 
-                      ? 'text-indigo-primary' 
+                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-primary to-teal-secondary' 
                       : 'text-secondary'
                   }`}
                 >
                   {link.name}
+                  <span className="text-xs opacity-50 font-normal">0{navLinks.indexOf(link) + 1}</span>
                 </a>
               ))}
             </div>
