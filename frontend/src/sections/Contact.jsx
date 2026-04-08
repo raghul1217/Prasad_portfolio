@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import LinkedinIcon from '../components/LinkedinIcon';
@@ -15,6 +15,42 @@ export default function Contact() {
   const itemVariants = {
     hidden: { y: 30, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const [status, setStatus] = useState(null); // 'sending', 'success', 'error'
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+
+  const handleInputChange = (e) => {
+    setFormState({ ...formState, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqegjowg', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formState)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFormState({ name: '', email: '', message: '' });
+      } else {
+        console.error('Formspree Error Response:', data);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Formspree Fetch Error:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -77,14 +113,18 @@ export default function Contact() {
 
           {/* Right: Contact Form */}
           <motion.div variants={itemVariants}>
-            <form className="bg-warm-surface p-8 shadow-sm border border-border-warm flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="bg-warm-surface p-8 shadow-sm border border-border-warm flex flex-col gap-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-bold text-primary mb-2">Name</label>
                 <input 
                   type="text" 
                   id="name" 
+                  name="name"
+                  required
+                  value={formState.name}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-warm-bg border border-border-warm rounded focus:outline-none focus:border-indigo-primary focus:ring-1 focus:ring-indigo-primary transition-colors placeholder:text-secondary/50 font-medium text-primary"
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                 />
               </div>
 
@@ -93,8 +133,12 @@ export default function Contact() {
                 <input 
                   type="email" 
                   id="email" 
+                  name="email"
+                  required
+                  value={formState.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-warm-bg border border-border-warm rounded focus:outline-none focus:border-indigo-primary focus:ring-1 focus:ring-indigo-primary transition-colors placeholder:text-secondary/50 font-medium text-primary"
-                  placeholder="john@example.com"
+                  placeholder="your.email@example.com"
                 />
               </div>
 
@@ -102,6 +146,10 @@ export default function Contact() {
                 <label htmlFor="message" className="block text-sm font-bold text-primary mb-2">Message</label>
                 <textarea 
                   id="message" 
+                  name="message"
+                  required
+                  value={formState.message}
+                  onChange={handleInputChange}
                   rows="4" 
                   className="w-full px-4 py-3 bg-warm-bg border border-border-warm rounded focus:outline-none focus:border-indigo-primary focus:ring-1 focus:ring-indigo-primary transition-colors placeholder:text-secondary/50 font-medium text-primary resize-none"
                   placeholder="How can we work together?"
@@ -109,13 +157,38 @@ export default function Contact() {
               </div>
 
               <motion.button 
+                type="submit"
+                disabled={status === 'sending'}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full mt-2 py-4 bg-gradient-to-r from-indigo-primary to-teal-secondary text-white font-bold rounded shadow flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                className={`w-full mt-2 py-4 font-bold rounded shadow flex items-center justify-center gap-2 transition-all ${
+                  status === 'sending' ? 'bg-secondary cursor-not-allowed' : 'bg-gradient-to-r from-indigo-primary to-teal-secondary text-white hover:shadow-lg'
+                }`}
               >
-                <span>Send Message</span>
+                <span>
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </span>
                 <Send size={18} />
               </motion.button>
+
+              {status === 'success' && (
+                <motion.p 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="text-teal-600 font-bold text-center text-sm"
+                >
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </motion.p>
+              )}
+              {status === 'error' && (
+                <motion.p 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="text-rose-600 font-bold text-center text-sm"
+                >
+                  ✕ Failed to send. If this is the first time, check your inbox to verify your email with Formspree.
+                </motion.p>
+              )}
             </form>
           </motion.div>
 

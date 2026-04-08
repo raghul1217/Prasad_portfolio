@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-end gap-6">
             <div className="flex items-center gap-4">
               <a
-                href="mailto:abc@example.com"
+                href="mailto:prasadshetty60@gmail.com"
                 className="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 hover:border-teal-400 hover:text-teal-400 hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] transition-all duration-300"
                 aria-label="Send an Email"
               >
