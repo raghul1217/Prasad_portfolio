@@ -49,39 +49,39 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-4 sm:px-6 pt-4 sm:pt-6 pointer-events-none`}
-      >
-        {/* Floating Pill Navbar */}
-        <div className={`mx-auto max-w-5xl pointer-events-auto rounded-3xl transition-all duration-300 flex justify-between items-center ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200/50 py-3 px-6' 
-            : 'bg-transparent py-2 px-2'
-        }`}>
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-slate-200/60' 
+            : 'bg-white/40 backdrop-blur-sm border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
           
           <a href="#" className="text-2xl font-display font-black text-indigo-700 whitespace-nowrap tracking-tighter hover:scale-105 transition-transform">
             <span className="text-teal-400 font-light">[</span> PN <span className="text-teal-400 font-light">]</span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex space-x-2 bg-slate-50/50 p-1 rounded-full border border-slate-100">
+          <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-bold transition-all relative px-5 py-2 rounded-full ${
+                className={`text-sm font-bold transition-all relative px-4 py-2 rounded-lg ${
                   activeSection === link.href.substring(1) 
-                    ? 'text-white' 
-                    : 'text-slate-600 hover:text-indigo-600'
+                    ? 'text-indigo-primary bg-indigo-50/50' 
+                    : 'text-slate-600 hover:text-indigo-primary hover:bg-slate-50'
                 }`}
               >
+                {link.name}
                 {activeSection === link.href.substring(1) && (
                   <motion.div 
-                    layoutId="activePill"
-                    className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-teal-400 rounded-full -z-10 shadow-md shadow-indigo-500/20"
+                    layoutId="activeUnderline"
+                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-indigo-primary rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                {link.name}
               </a>
             ))}
           </div>
@@ -90,13 +90,14 @@ export default function Navbar() {
 
           {/* Mobile Toggle Button */}
           <button 
-            className="lg:hidden text-slate-800 focus:outline-none bg-slate-50 p-2.5 rounded-xl border border-slate-200 shadow-sm active:scale-95 transition-transform"
+            className="lg:hidden text-slate-800 focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition-colors"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <Menu size={22} className="text-indigo-600"/>
+            <Menu size={24} className="text-slate-700"/>
           </button>
         </div>
-      </motion.nav>
+      </div>
+    </motion.nav>
 
       {/* Mobile Drawer Overlay */}
       <AnimatePresence>

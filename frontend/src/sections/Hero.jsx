@@ -52,15 +52,7 @@ export default function Hero() {
           {/* Animated Glow Backdrop */}
           <div className="absolute -inset-4 bg-gradient-to-r from-indigo-primary/20 to-teal-secondary/20 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60 group-hover:opacity-80 animate-pulse" />
           
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ 
-              duration: 5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="p-1.5 rounded-full bg-gradient-to-r from-indigo-primary to-teal-secondary shadow-2xl">
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/30 backdrop-blur-md">
                 <img 
@@ -70,7 +62,7 @@ export default function Hero() {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.h1 
