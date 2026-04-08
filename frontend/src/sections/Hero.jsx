@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import cvFile from '../assets/PRASAD N (C.V).pdf';
+import profileImg from '../assets/prasad_profile.jpeg';
 
 const subtitles = [
   "Tool Design & R&D Product Development",
@@ -44,6 +45,34 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
+        <motion.div 
+          variants={itemVariants}
+          className="relative mb-8 group"
+        >
+          {/* Animated Glow Backdrop */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-indigo-primary/20 to-teal-secondary/20 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60 group-hover:opacity-80 animate-pulse" />
+          
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ 
+              duration: 5, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="relative"
+          >
+            <div className="p-1.5 rounded-full bg-gradient-to-r from-indigo-primary to-teal-secondary shadow-2xl">
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/30 backdrop-blur-md">
+                <img 
+                  src={profileImg} 
+                  alt="Prasad N Profile" 
+                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
         <motion.h1 
           variants={itemVariants} 
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-900 to-indigo-primary leading-tight pb-2 whitespace-nowrap"
