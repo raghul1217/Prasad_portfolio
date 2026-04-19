@@ -7,25 +7,25 @@ const educationList = [
     degree: "M.E. in Tool Engineering",
     institution: "NTTF",
     location: "Bangalore",
-    year: "2008 – 2010"
+    year: "08/2008 – 10/2010"
   },
   {
     degree: "B.E. in Mechanical Engineering",
     institution: "BDT College",
     location: "Davangere",
-    year: "2005 – 2007"
+    year: "08/2005 – 07/2007"
   },
   {
     degree: "Diploma in Mechanical Engineering",
     institution: "Govt. Polytechnic",
     location: "Raichur",
-    year: "2001 – 2004"
+    year: "08/2001 – 07/2004"
   },
   {
     degree: "Class X",
     institution: "KPCL",
     location: "Raichur",
-    year: "2000 – 2001"
+    year: "04/2000 – 03/2001"
   }
 ];
 

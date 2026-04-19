@@ -57,7 +57,7 @@ export default function About() {
               
               <div className="text-secondary leading-relaxed text-base md:text-lg space-y-6 relative z-10">
                 <p>
-                  I bring <strong className="text-indigo-primary font-bold">16+ years of hands-on experience</strong> across tool room, machine shop, sheetmetal, and heavy fabrication environments. My core strengths lie in R&D product design, jig & fixture development, special purpose machine (SPM) design, and manufacturing process improvement.
+                  I bring <strong className="text-indigo-primary font-bold">16+ years of diverse experience</strong> across tool room, machine shop floor, sheetmetal, and heavy fabrication — including specialized expertise in tool maintenance and foundries. My core strengths lie in R&D product design, jig & fixture development, and SPM engineering.
                 </p>
                 <p>
                   I work with a sharp focus on cost reduction, efficiency, and delivering against management objectives — from greenfield project setup to global client deliveries.

@@ -24,7 +24,7 @@ const experiences = [
     id: 2,
     role: "Assistant Manager — R&D",
     company: "Veerya Attachments Pvt Ltd",
-    duration: "Oct 2024",
+    duration: "Oct 2024 – Nov 2025",
     location: "Malur, Karnataka",
     about: "Mechanical attachments & equipment — Crushers, Grapples, Couplers, Hydraulic Cylinders",
     responsibilities: [

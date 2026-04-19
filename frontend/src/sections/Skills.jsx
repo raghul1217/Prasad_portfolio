@@ -6,28 +6,28 @@ const modernSkills = [
   {
     title: "CAD / CAM Tools",
     icon: <Layers size={28} className="text-indigo-500" />,
-    items: ["PTC Creo", "Pro-E", "SolidWorks", "Autodesk Inventor", "AutoCAD", "Vault"],
+    items: ["PTC Creo", "Pro-E", "SolidWorks", "Autodesk Inventor", "AutoCAD", "Vault", "Reverse Engineering"],
     bgClass: "bg-indigo-50 border-indigo-100",
     pillClass: "bg-white text-indigo-700 shadow-sm border border-indigo-100"
   },
   {
     title: "Advanced Manufacturing",
     icon: <Cog size={28} className="text-teal-500" />,
-    items: ["HMC", "VMC", "CNC", "DFM", "Welding", "Process Design", "Reverse Eng", "SPM Design", "Fixture Design"],
+    items: ["HMC", "VMC", "CNC", "DFM", "Welding", "Process Design", "SPM Design", "Fixture Design", "Tool Design"],
     bgClass: "bg-teal-50 border-teal-100",
     pillClass: "bg-white text-teal-700 shadow-sm border border-teal-100"
   },
   {
     title: "Methodologies",
     icon: <Lightbulb size={28} className="text-purple-500" />,
-    items: ["Lean Manufacturing", "Kaizen", "Kanban", "SMED", "PPAP", "FMEA", "Quality Assurance"],
+    items: ["Lean Manufacturing", "Kaizen", "Kanban", "SMED", "PPAP", "FMEA", "Quality Assurance", "5S", "Six Sigma"],
     bgClass: "bg-purple-50 border-purple-100",
     pillClass: "bg-white text-purple-700 shadow-sm border border-purple-100"
   },
   {
     title: "Business & Management",
     icon: <LineChart size={28} className="text-rose-500" />,
-    items: ["ERP Software", "Team Management", "MS Office", "Product Strategy", "Business Development"],
+    items: ["SAP", "ERP Software", "AI Documentation", "MS Office", "Business Development", "Project Execution"],
     bgClass: "bg-rose-50 border-rose-100",
     pillClass: "bg-white text-rose-700 shadow-sm border border-rose-100"
   }

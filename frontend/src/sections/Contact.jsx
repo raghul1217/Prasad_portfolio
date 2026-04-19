@@ -106,7 +106,7 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-border-warm text-teal-secondary">
                   <MapPin size={20} />
                 </div>
-                <span className="font-medium text-lg">Mysuru, Karnataka, India</span>
+                <span className="font-medium text-lg">Bengaluru, Karnataka, India</span>
               </div>
             </div>
           </motion.div>
